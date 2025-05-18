@@ -1,0 +1,100 @@
+// Сыбайлас жемқорлықтың алдын алу веб-сайты
+// Басты бет, Қаржылық есептер, Өтініштер, Жеке кабинет
+
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import ReportsPage from './pages/ReportsPage';
+import RequestsPage from './pages/RequestsPage';
+import DashboardPage from './pages/DashboardPage';
+import Navbar from './components/Navbar';
+import './index.css';
+
+function App() {
+  return (
+    <Router>
+      <div className="min-h-screen bg-gray-100">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/reports" element={<ReportsPage />} />
+          <Route path="/requests" element={<RequestsPage />} />
+          <Route path="/dashboard" element={<DashboardPage />} />
+        </Routes>
+      </div>
+    </Router>
+  );
+}
+
+export default App;
+
+// Navbar Component
+const Navbar = () => {
+  return (
+    <nav className="bg-blue-600 text-white p-4 flex justify-between">
+      <div className="text-lg font-bold">Сыбайлас жемқорлықтың алдын алу</div>
+      <div className="space-x-4">
+        <a href="/" className="hover:underline">Басты бет</a>
+        <a href="/reports" className="hover:underline">Қаржылық есептер</a>
+        <a href="/requests" className="hover:underline">Өтініштер</a>
+        <a href="/dashboard" className="hover:underline">Жеке кабинет</a>
+      </div>
+    </nav>
+  );
+};
+
+export { Navbar };
+
+// HomePage Component
+const HomePage = () => {
+  return (
+    <div className="p-8">
+      <h1 className="text-2xl font-bold mb-4">Сыбайлас жемқорлықтың алдын алу платформасына қош келдіңіз!</h1>
+      <p>Бұл платформа тұрғын үй кешеніндегі құрылыс және қызмет көрсету процестерінің ашықтығын қамтамасыз ету үшін жасалған.</p>
+    </div>
+  );
+};
+
+export default HomePage;
+
+// ReportsPage Component
+const ReportsPage = () => {
+  return (
+    <div className="p-8">
+      <h1 className="text-2xl font-bold mb-4">Қаржылық есептер</h1>
+      <p>Бұл бөлімде тұрғын үй кешеніндегі қаржылық есептер мен шығындар туралы ақпарат жарияланады.</p>
+      <div className="bg-white p-4 rounded-lg shadow-lg mt-4">
+        <h2 className="font-bold mb-2">1-кезең: Құрылыс басталуы</h2>
+        <p>Шығындар: 1 000 000 ₸</p>
+      </div>
+      <div className="bg-white p-4 rounded-lg shadow-lg mt-4">
+        <h2 className="font-bold mb-2">2-кезең: Ішкі әрлеу жұмыстары</h2>
+        <p>Шығындар: 750 000 ₸</p>
+      </div>
+    </div>
+  );
+};
+
+export default ReportsPage;
+
+// RequestsPage Component
+const RequestsPage = () => {
+  return (
+    <div className="p-8">
+      <h1 className="text-2xl font-bold mb-4">Өтініштер</h1>
+      <p>Бұл бөлімде тұрғындар өз өтініштерін жіберіп, олардың мәртебесін бақылай алады.</p>
+      <div className="bg-white p-4 rounded-lg shadow-lg mt-4">
+        <h2 className="font-bold mb-2">Өтініш формасы</h2>
+        <form className="space-y-4">
+          <div>
+            <label className="block mb-1">Өтініш мәтіні:</label>
+            <textarea className="w-full p-2 border rounded" rows="4"></textarea>
+          </div>
+          <button className="bg-blue-600 text-white py-2 px-4 rounded">Жіберу</button>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default RequestsPage;
